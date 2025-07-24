@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Designed and developed by Universal, Abdulhayev Nuriddin"
+    />
+    <meta name="author" content="Universal, Abdulhayev Nuriddin" />
+    <title>Designed by Universal</title>
+    <link rel="shortcut icon" href="./images/favicon.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      }
+      body {
+        background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        background-color: #fff;
+        width: 450px;
+        padding: 2rem;
+        margin: 50px auto;
+        border-radius: 10px;
+        box-shadow: 0 20px 35px rgba(0, 0, 1, 0.9);
+        transition: all 0.3s ease;
+      }
+      .form-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 1.5rem 0;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+      .user-info {
+        padding: 1.5rem;
+        background: #f9f9f9;
+        border-radius: 5px;
+        margin-bottom: 1.5rem;
+      }
+      .user-info p {
+        margin: 0.5rem 0;
+        font-size: 1rem;
+        color: #333;
+      }
+      .provider-icon {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+      .provider-icon i {
+        font-size: 1.5rem;
+        color: rgb(125, 125, 235);
+        margin-right: 10px;
+      }
+      .provider-icon span {
+        font-size: 1rem;
+        color: #333;
+      }
+      button.btn,
+      .main-link {
+        font-size: 1.1rem;
+        padding: 12px 0;
+        border-radius: 5px;
+        border: none;
+        width: 100%;
+        background: rgb(125, 125, 235);
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      button.btn:hover,
+      .main-link:hover {
+        background: #07001f;
+        transform: translateY(-2px);
+      }
+      button.btn:active,
+      .main-link:active {
+        transform: translateY(0);
+      }
+      .main-link {
+        margin-bottom: 10px;
+        display: block;
+        text-align: center;
+      }
+      .messageDiv {
+        background-color: hsl(0, 90%, 40%);
+        color: #fff;
+        padding: 10px 15px;
+        margin: 10px 0;
+        border-radius: 5px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      .messageDiv.show {
+        opacity: 1;
+      }
+      .messageDiv.success {
+        background-color: hsl(120, 60%, 40%);
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="form-title">Bosh sahifaga xush kelibsiz</h1>
+      <div class="messageDiv" id="userMessage"></div>
+      <div class="user-info">
+        <div class="provider-icon" id="providerIcon">
+          <i id="providerIconClass"></i>
+          <span id="providerName"></span>
+        </div>
+        <p><strong>Ism:</strong> <span id="firstName"></span></p>
+        <p><strong>Familiya:</strong> <span id="lastName"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+      </div>
+      <a href="./index.html" class="main-link">Asosiy sahifaga o'tish</a>
+      <button class="btn" id="logoutButton">Chiqish</button>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+      import {
+        getFirestore,
+        doc,
+        getDoc,
+      } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyADQM45ZSJvfKo3Ws_VjJEyf2MtHG0og7g",
+        authDomain: "login-473da.firebaseapp.com",
+        projectId: "login-473da",
+        storageBucket: "login-473da.appspot.com",
+        messagingSenderId: "20652068293",
+        appId: "1:20652068293:web:1e4ea617cdce084050cfac",
+        measurementId: "G-TY00M81558",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+
+      function showMessage(divId, message, isSuccess) {
+        const messageDiv = document.getElementById(divId);
+        if (messageDiv) {
+          messageDiv.textContent = message;
+          messageDiv.className = `messageDiv ${isSuccess ? "success" : ""}`;
+          messageDiv.classList.add("show");
+          setTimeout(() => {
+            messageDiv.classList.remove("show");
+          }, 5000);
+        } else {
+          console.error(`MessageDiv topilmadi: ${divId}`);
+        }
+      }
+
+      const providerIcons = {
+        google: "fab fa-google",
+        github: "fab fa-github",
+        facebook: "fab fa-facebook",
+        twitter: "fab fa-twitter",
+        microsoft: "fab fa-microsoft",
+        anonymous: "fas fa-user-secret",
+        email: "fas fa-envelope",
+      };
+
+      const providerNames = {
+        google: "Google",
+        github: "GitHub",
+        facebook: "Facebook",
+        twitter: "Twitter",
+        microsoft: "Microsoft",
+        anonymous: "Anonim",
+        email: "Email",
+      };
+
+      onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          try {
+            const userDocRef = doc(db, "users", user.uid);
+            const userDocSnap = await getDoc(userDocRef);
+            if (userDocSnap.exists()) {
+              const userData = userDocSnap.data();
+              document.getElementById("firstName").textContent =
+                userData.firstName || "Noma'lum";
+              document.getElementById("lastName").textContent =
+                userData.lastName || "Noma'lum";
+              document.getElementById("email").textContent =
+                userData.email || "Noma'lum";
+              const provider = userData.provider || "email";
+              document.getElementById("providerIconClass").className =
+                providerIcons[provider] || "fas fa-user";
+              document.getElementById("providerName").textContent =
+                providerNames[provider] || "Noma'lum";
+            } else {
+              showMessage(
+                "userMessage",
+                "Foydalanuvchi ma'lumotlari topilmadi.",
+                false
+              );
+              setTimeout(() => {
+                window.location.href = "login-register.html";
+              }, 1500);
+            }
+          } catch (error) {
+            showMessage(
+              "userMessage",
+              `Ma'lumotlarni olishda xato: ${error.message}`,
+              false
+            );
+            setTimeout(() => {
+              window.location.href = "login-register.html";
+            }, 1500);
+          }
+        } else {
+          showMessage("userMessage", "Foydalanuvchi tizimga kirmagan.", false);
+          setTimeout(() => {
+            window.location.href = "login-register.html";
+          }, 1500);
+        }
+      });
+
+      document
+        .getElementById("logoutButton")
+        .addEventListener("click", async () => {
+          try {
+            await signOut(auth);
+            showMessage("userMessage", "Tizimdan chiqildi.", true);
+            setTimeout(() => {
+              window.location.href = "login-register.html";
+            }, 1500);
+          } catch (error) {
+            showMessage(
+              "userMessage",
+              `Chiqishda xato: ${error.message}`,
+              false
+            );
+          }
+        });
+    </script>
+  </body>
+</html>

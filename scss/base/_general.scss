@@ -1,0 +1,149 @@
+// @use "./variables" as *;
+
+:root {
+    --white: #FAFAFA;
+    --black: #121212;
+    --primary-color: #00C853;
+}
+
+.dark {
+    --white: #121212;
+    --black: #FAFAFA;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--black);
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+a {
+    text-decoration: none;
+}
+
+a,
+button,
+summary {
+    cursor: pointer;
+}
+
+input,
+textarea,
+select,
+button,
+label,
+summary {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+.cnt {
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1640px;
+    width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .cnt {
+        max-width: 668px;
+        padding: 0 15px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .cnt {
+        max-width: 380px;
+        padding: 0 10px;
+    }
+}
+
+#scrollProgressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background-color: var(--primary-color);
+    z-index: 9998;
+    width: 0;
+}
+
+// .hidden-content {
+//     opacity: 0;
+//     transition: opacity 1s ease;
+// }
+
+// .hidden-content.show {
+//     opacity: 1;
+// }
+
+#loader {
+    width: 80px;
+    height: 80px;
+    border: 5px solid transparent;
+    border-top: 5px solid var(--primary-color);
+    border-bottom: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+#loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+#themeToggle {
+    position: fixed;
+    top: 150px;
+    right: 30px;
+    z-index: 9998;
+
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 0 0 20px var(--black);
+    }
+}
