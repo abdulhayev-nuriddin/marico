@@ -355,4 +355,35 @@ img {
   100% {
     transform: scale(1);
   }
+}
+
+.why {
+  margin-top: 150px;
+}
+.why__title {
+  font-weight: 600;
+  font-size: 75px;
+  line-height: 112px;
+  text-align: center;
+}
+.why__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 64px;
+}
+.why__card {
+  max-width: 443px;
+  width: 100%;
+  text-align: center;
+}
+.why__card__title {
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 52px;
+}
+.why__card__txt {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 33px;
 }/*# sourceMappingURL=main.css.map */

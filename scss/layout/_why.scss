@@ -1,0 +1,35 @@
+.why {
+    margin-top: 150px;
+
+    &__title {
+        font-weight: 600;
+        font-size: 75px;
+        line-height: 112px;
+        text-align: center;
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 64px;
+    }
+
+    &__card {
+        max-width: 443px;
+        width: 100%;
+        text-align: center;
+
+        &__title {
+            font-weight: 600;
+            font-size: 35px;
+            line-height: 52px;
+        }
+
+        &__txt {
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 33px;
+        }
+    }
+}
