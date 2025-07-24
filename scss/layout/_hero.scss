@@ -81,12 +81,17 @@
         gap: 15px;
     }
 
+    &__txt {
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 100%;
+    }
+
     &__pulse {
         background-color: $green;
         border-radius: 50%;
         width: 15px;
         height: 15px;
-        z-index: 10;
         transition: all 0.3s ease;
         animation: pulse 3s ease infinite;
     }
@@ -97,7 +102,7 @@
         }
 
         50% {
-            transform: scale(1.8);
+            transform: scale(2);
         }
 
         100% {

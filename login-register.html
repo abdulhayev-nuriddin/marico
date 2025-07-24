@@ -1,20 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Designed and developed by Universal, Abdulhayev Nuriddin"
-    />
-    <meta name="author" content="Universal, Abdulhayev Nuriddin" />
-    <title>Designed by Universal</title>
-    <link rel="shortcut icon" href="./images/favicon.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <!-- <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" /> -->
+    <title>Ro'yxatdan o'tish va Kirish</title>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <style>
       * {
@@ -32,7 +24,7 @@
       }
       .container {
         background-color: #fff;
-        width: 450px;
+        width: 600px;
         padding: 2rem;
         margin: 50px auto;
         border-radius: 10px;
@@ -546,7 +538,7 @@
             true
           );
           setTimeout(() => {
-            window.location.href = "home.html";
+            window.location.href = "homepage.html";
             showLoading(false);
           }, 1500);
         } catch (error) {
@@ -573,6 +565,29 @@
       }
 
       setupFormSwitching();
+
+      // URL parametrini tekshirib, kerakli formani ochish
+      function checkURLParameter() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const formType = urlParams.get("form");
+
+        const signUpForm = document.getElementById("signup");
+        const signInForm = document.getElementById("login");
+
+        if (formType === "login") {
+          // Login formani ko'rsatish
+          signUpForm.classList.remove("active");
+          signInForm.classList.add("active");
+        } else if (formType === "register") {
+          // Register formani ko'rsatish
+          signInForm.classList.remove("active");
+          signUpForm.classList.add("active");
+        }
+        // Agar parametr yo'q bo'lsa, default (register) qoladi
+      }
+
+      // Sahifa yuklanganda tekshirish
+      checkURLParameter();
 
       document
         .getElementById("signupForm")
@@ -699,7 +714,7 @@
               true
             );
             setTimeout(() => {
-              window.location.href = "home.html";
+              window.location.href = "homepage.html";
               showLoading(false);
             }, 1500);
           } catch (error) {
@@ -826,7 +841,7 @@
               true
             );
             setTimeout(() => {
-              window.location.href = "home.html";
+              window.location.href = "homepage.html";
               showLoading(false);
             }, 1500);
           } catch (error) {

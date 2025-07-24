@@ -19,7 +19,7 @@
   </head>
 
   <body>
-    <!-- <div id="loader"></div> -->
+    <div id="loader"></div>
     <div id="scrollProgressBar"></div>
     <button id="themeToggle" aria-label="Switch theme" class="hidden-content">
       <img src="./images/moon.png" alt="Toggle Theme" id="themeIcon" />
@@ -67,8 +67,18 @@
           </ul>
         </nav>
         <div class="header__auth">
-          <button class="header__login">Login</button>
-          <button class="header__register">Sign Up</button>
+          <button
+            class="header__login"
+            onclick="window.location.href='login-register.html?form=login'"
+          >
+            Login
+          </button>
+          <button
+            class="header__register"
+            onclick="window.location.href='login-register.html?form=register'"
+          >
+            Sign Up
+          </button>
         </div>
       </div>
     </header>
@@ -118,12 +128,176 @@
         </div>
       </section>
       <section class="step1">
-        <div class="cnt step1__cnt"></div>
+        <div class="cnt step1__cnt">
+          <h3 class="step1__subtitle">STEP 1</h3>
+          <h2 class="step1__title">Connect Your Content</h2>
+          <p class="step1__txt">
+            Bring all of your content together and get a Homepage that
+            automatically updates whenever you create anywhere online.
+          </p>
+          <a href="#" class="step1__link">View Avaliable Sources</a>
+          <div class="step1__content">
+            <div class="step1__left">
+              <h3 class="step1__heading">Your Homepage</h3>
+              <h2 class="step1__subheading">
+                Your Content. <br />
+                All in <span class="step1__span">One Spot</span>
+              </h2>
+              <ol class="step1__list">
+                <li class="step1__items">
+                  <p class="step1__text">
+                    Bring all of your content together into one homepage.
+                  </p>
+                </li>
+                <li class="step1__items">
+                  <p class="step1__text">
+                    Your page automatically updates whenever you create.
+                  </p>
+                </li>
+              </ol>
+              <div class="hero__btns step1__btns">
+                <button class="hero__btn step1__btn">Get Started Now</button>
+                <button class="hero__btn2 step1__btn2">View A Demo</button>
+              </div>
+            </div>
+            <p class="step1__right"></p>
+            <img src="./images/step1img.png" alt="img" class="step1__img" />
+          </div>
+        </div>
+      </section>
+      <section class="step2">
+        <div class="cnt step2__cnt">
+          <h3 class="step2__subtitle">STEP 2</h3>
+          <h2 class="step2__title">Share Your Homepage</h2>
+          <p class="step2__txt">
+            Share your Wavium homepage link with your followers, and we'll
+            handle the rest.
+          </p>
+          <div class="step2__content">
+            <div class="step2__box">
+              <p class="step2__box__txt">One Link</p>
+              <h2 class="step2__box__title">
+                ALL You Create.
+                <span class="step2__box__span">One Link</span>
+              </h2>
+              <img
+                src="./images/step2img.png"
+                alt="img"
+                class="step2__box__img"
+              />
+            </div>
+            <div class="step2__box">
+              <p class="step2__box__txt">Collect Subscribers</p>
+              <h2 class="step2__box__title">
+                Emails. <br />
+                Phone #s.
+                <span class="step2__box__span">All Yours.</span>
+              </h2>
+            </div>
+          </div>
+          <button class="hero__btn step2__btn">Get Started</button>
+        </div>
+      </section>
+      <section class="step1">
+        <div class="cnt step1__cnt">
+          <h3 class="step1__subtitle">STEP 3</h3>
+          <h2 class="step1__title">Send Emails & Text Messages</h2>
+          <p class="step1__txt">
+            No more going through a social platform. Reach and engage your
+            audience directly over email and text massage.
+          </p>
+          <div class="step1__content">
+            <div class="step1__left">
+              <h3 class="step1__heading">Create & Share</h3>
+              <h2 class="step1__subheading">
+                Reach Your <br />
+                Audience <span class="step1__span">Directly.</span>
+              </h2>
+              <ol class="step1__list">
+                <li class="step1__items">
+                  <p class="step1__text">
+                    Embed content or create something new to share.
+                  </p>
+                </li>
+                <li class="step1__items">
+                  <p class="step1__text">
+                    Share content over email, text message or your homepage.
+                  </p>
+                </li>
+              </ol>
+              <div class="hero__btns step1__btns">
+                <button class="hero__btn step1__btn">Get Started Now</button>
+                <button class="hero__btn2 step1__btn2">View A Demo</button>
+              </div>
+            </div>
+            <p class="step1__right"></p>
+            <img src="./images/step3img.png" alt="img" class="step1__img" />
+          </div>
+        </div>
+      </section>
+      <section class="experts">
+        <div class="cnt experts__cnt">
+          <h2 class="experts__title">Experts Agree</h2>
+        </div>
+        <img src="./images/expertsbg.png" alt="img" class="experts__img" />
+      </section>
+      <section class="help">
+        <img src="./images/helpbg.png" alt="img" class="help__img" />
+        <div class="cnt help__cnt">
+          <h2 class="help__title">
+            We've helped over 1,000 creatorsre claim control of their audience.
+          </h2>
+        </div>
+      </section>
+      <section class="start">
+        <div class="cnt start__cnt">
+          <img src="./images/logo.svg" alt="logo" class="start__img" />
+          <h2 class="start__title">Get Started Now</h2>
+          <p class="start__txt">Setup is easy and takes under 5 minutes.</p>
+          <button class="hero__btn start__btn">Get Started Now</button>
+          <div class="hero__bottom">
+            <span class="hero__pulse"></span>
+            <p class="hero__txt start__text">
+              <b>1000+</b> creators have already started
+            </p>
+          </div>
+        </div>
       </section>
     </main>
 
     <footer class="footer hidden-content">
-      <div class="cnt footer__cnt"></div>
+      <div class="cnt footer__cnt">
+        <div class="footer__left">
+          <div class="footer__banner">
+            <img src="./images/banner.svg" alt="logo" class="footer__logo" />
+            <h2 class="footer__title">Marico</h2>
+          </div>
+          <a href="mailto:info@marico.co" class="footer__link">
+            info@marico.co
+          </a>
+        </div>
+        <ul class="footer__list">
+          <li class="footer__items">
+            <a href="" class="footer__links">About</a>
+          </li>
+          <li class="footer__items">
+            <a href="" class="footer__links">Pricing</a>
+          </li>
+          <li class="footer__items">
+            <a href="" class="footer__links">Blog</a>
+          </li>
+          <li class="footer__items">
+            <a href="login-register.html?form=login" class="footer__links"
+              >Login</a
+            >
+          </li>
+          <li class="footer__items">
+            <a href="login-register.html?form=register" class="footer__links"
+              >Sign in</a
+            >
+          </li>
+        </ul>
+      </div>
     </footer>
 
     <script src="./js/main.js"></script>

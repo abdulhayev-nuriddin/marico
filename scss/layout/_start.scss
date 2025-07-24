@@ -1,0 +1,35 @@
+.start {
+
+    &__cnt {
+        display: grid;
+        place-items: center;
+        gap: 25px;
+    }
+
+    &__img {
+        width: 165px;
+        height: 155px;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 100px;
+        line-height: 150px;
+    }
+
+    &__txt {
+        font-weight: 400;
+        font-size: 43px;
+        line-height: 64px;
+    }
+
+    &__btn {
+        padding: 29px 112px;
+    }
+
+    &__text {
+        font-weight: 400;
+        font-size: 38px;
+        line-height: 100%;
+    }
+}
