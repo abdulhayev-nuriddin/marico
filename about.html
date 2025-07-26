@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Designed and developed by Universal, Abdulhayev Nuriddin"
+    />
+    <meta name="author" content="Universal, Abdulhayev Nuriddin" />
+    <title>Designed by Universal</title>
+    <link rel="shortcut icon" href="./images/favicon.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <!-- <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="loader"></div>
+    <div id="scrollProgressBar"></div>
+    <button id="themeToggle" aria-label="Switch theme" class="hidden-content">
+      <img src="./images/moon.png" alt="Toggle Theme" id="themeIcon" />
+    </button>
+    <header class="header hidden-content">
+      <div class="header__cnt cnt">
+        <a href="./index.html" class="header__banner">
+          <img src="./images/logo.svg" alt="logo" class="header__logo" />
+          <h1 class="header__title">Marico</h1>
+        </a>
+        <nav class="header__nav" aria-label="Main Navigation">
+          <ul class="header__list">
+            <li class="header__item header__item--has-dropdown">
+              <a
+                href="#"
+                class="header__link"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Use Cases
+                <i class="fa-solid fa-chevron-down header__icon"></i>
+              </a>
+              <ul class="header__dropdown">
+                <li class="header__dropdown-item">
+                  <a href="#" class="header__dropdown-link">About</a>
+                </li>
+                <li class="header__dropdown-item">
+                  <a href="./pricing.html" class="header__dropdown-link"
+                    >Pricing</a
+                  >
+                </li>
+                <li class="header__dropdown-item">
+                  <a href="./blog.html" class="header__dropdown-link">Blog</a>
+                </li>
+              </ul>
+            </li>
+            <li class="header__item">
+              <a href="#" class="header__link">About</a>
+            </li>
+            <li class="header__item">
+              <a href="./pricing.html" class="header__link">Pricing</a>
+            </li>
+            <li class="header__item">
+              <a href="./blog.html" class="header__link">Blog</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header__auth">
+          <button
+            class="header__login"
+            onclick="window.location.href='auth.html?form=login'"
+          >
+            Login
+          </button>
+          <button
+            class="header__register"
+            onclick="window.location.href='auth.html?form=register'"
+          >
+            Sign Up
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="main hidden-content">
+      <section class="pricing">
+        <div class="cnt pricing__cnt"></div>
+      </section>
+      <section class="start">
+        <div class="cnt start__cnt">
+          <img src="./images/logo.svg" alt="logo" class="start__img" />
+          <h2 class="start__title">Get Started Now</h2>
+          <p class="start__txt">Setup is easy and takes under 5 minutes.</p>
+          <button class="hero__btn start__btn">Get Started Now</button>
+          <div class="hero__bottom">
+            <span class="hero__pulse"></span>
+            <p class="hero__txt start__text">
+              <b>1000+</b> creators have already started
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer hidden-content">
+      <div class="cnt footer__cnt">
+        <div class="footer__left">
+          <div class="footer__banner">
+            <img src="./images/banner.svg" alt="logo" class="footer__logo" />
+            <h2 class="footer__title">Marico</h2>
+          </div>
+          <a href="mailto:info@marico.co" class="footer__link">
+            info@marico.co
+          </a>
+        </div>
+        <ul class="footer__list">
+          <li class="footer__items">
+            <a href="#" class="footer__links">About</a>
+          </li>
+          <li class="footer__items">
+            <a href="./pricing.html" class="footer__links">Pricing</a>
+          </li>
+          <li class="footer__items">
+            <a href="./blog.html" class="footer__links">Blog</a>
+          </li>
+          <li class="footer__items">
+            <a href="auth.html?form=login" class="footer__links">Login</a>
+          </li>
+          <li class="footer__items">
+            <a href="auth.html?form=register" class="footer__links">Sign in</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
